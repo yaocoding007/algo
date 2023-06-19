@@ -2,7 +2,7 @@
  * @lc app=leetcode.cn id=27 lang=javascript
  * @lcpr version=21909
  *
- * [27] 移除元素
+ * [27] 移除元素 
  */
 
 // @lc code=start
@@ -24,7 +24,7 @@ var removeElement = function(nums, val) {
 };
 // @lc code=end
 
-
+// 双指针解法
 
 /*
 // @lcpr case=start
