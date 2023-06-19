@@ -24,8 +24,6 @@ var removeElement = function(nums, val) {
 };
 // @lc code=end
 
-// 双指针解法 左右指针来标记
-
 /*
 // @lcpr case=start
 // [3,2,2,3]\n3\n
