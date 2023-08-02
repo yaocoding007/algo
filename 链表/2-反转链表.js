@@ -78,7 +78,25 @@ function reverseList0(head) {
     return list[list.length - 1]
 };
 
+var reverseList01 = function(head) {
+    if (!head || !head.next) return head
+    const arr = []
+    while (head) {
+        arr.push(head.value)
+        head = head.next
+    }
+    /**
+     * 很巧妙的利用了 acc 的能力 真不错
+     */
+    return arr.reduce((acc, v) => { 
+        return { val: v, next: acc 
+    } }, null)
+};
+
+
+// console.log('lly-log -- link --->', link);
+
 const res = reverseList(link)
 
-console.log('lly-log -- res --->', res);
+// console.log('lly-log -- res --->', res);
 
