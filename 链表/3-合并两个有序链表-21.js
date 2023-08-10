@@ -38,25 +38,59 @@ const link2 = generateLinkedListMockData([1, 3, 4])
  * @param {ListNode} list2
  * @return {ListNode}
  */
-var mergeTwoLists = function(list1, list2) {
+var mergeTwoLists1 = function(list1, list2) {
+    let dumpNode = new Node(-1)
     let p1 = list1;
     let p2 = list2;
-    let arr = []
-    while(p1.next || p2.next) {
+    let p = dumpNode;
+
+    while(p1 && p2) {
         if(p1.value > p2.value) {
-            arr.push(p2.value)
-            p2 = p2.next
+            p.next = p2;
+            p2 = p2.next;
         }else {
-            arr.push(p1.value)
+            p.next = p1;
             p1 = p1.next
         }
+
+        p = p.next;
     }
 
-    return arr
+    if(p1) {
+        p.next = p1
+    }
+    if(p2) {
+        p.next = p1
+    }
+
+    return dumpNode.next
 
 };
+
+/**
+ * 递归法
+ * @param {*} link1 
+ * @param {*} link2 
+ * @returns 
+ */
+function mergeTwoLists(link1, link2) {
+    if(!link1) {
+        return link2
+    }
+    if(!link2) {
+        return link1
+    }
+    if(link1.value < link2.value) {
+        link1.next = mergeTwoLists(link1.next, link2)
+        return link1
+    }else{
+        link2.next = mergeTwoLists(link1, link2.next)
+        return link2
+    }
+}
 
 const res = mergeTwoLists(link1, link2)
 
 
-console.log('res ->', res)
+
+console.log('res ->', JSON.stringify(res))
