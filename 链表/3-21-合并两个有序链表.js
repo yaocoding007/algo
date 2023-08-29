@@ -44,18 +44,28 @@ const link2 = generateLinkedListMockData([1, 3, 4])
 function mergeTwoLists0(list1, list2) {
     let p1 = list1;
     let p2 = list2;
-    let arr = []
-    while(p1.next || p2.next) {
+    let p = dumpNode;
+
+    while(p1 && p2) {
         if(p1.value > p2.value) {
-            arr.push(p2.value)
-            p2 = p2.next
+            p.next = p2;
+            p2 = p2.next;
         }else {
-            arr.push(p1.value)
+            p.next = p1;
             p1 = p1.next
         }
+
+        p = p.next;
     }
 
-    return arr
+    if(p1) {
+        p.next = p1
+    }
+    if(p2) {
+        p.next = p1
+    }
+
+    return dumpNode.next
 
 };
 
