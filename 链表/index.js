@@ -20,3 +20,8 @@ function generateLinkedListMockData(list) {
     }
     return head;
 }
+
+module.exports = { 
+    Node,
+    generateLinkedListMockData
+}
