@@ -21,7 +21,19 @@ function generateLinkedListMockData(list) {
     return head;
 }
 
+function getLinksValue(head) {
+    let res = []
+    let that = head;
+
+    while(that) {
+        res.push(that.value)
+        that = that.next
+    }
+    return res
+}
+
 module.exports = { 
     Node,
-    generateLinkedListMockData
+    generateLinkedListMockData,
+    getLinksValue
 }
