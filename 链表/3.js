@@ -1,28 +1,14 @@
-// https://leetcode.cn/problems/merge-two-sorted-lists/description/
+/**
+ * 21-合并两个有序链表
+ * https://leetcode.cn/problems/merge-two-sorted-lists/description/
+ */
 
+const {
+    generateLinkedListMockData,
+} = require('./index')
+  
 //将两个升序链表合并为一个新的 升序 链表并返回。
 // 新链表是通过拼接给定的两个链表的所有节点组成的。 
-
-class Node {
-    constructor(value) {
-        this.value = value;
-        this.next = null;
-    }
-}
-
-function generateLinkedListMockData(list) {
-    if (list.length <= 0) {
-        return null;
-    }
-    const head = new Node(list[0]);
-    let current = head;
-    for (let i = 1; i < list.length; i++) {
-        const newNode = new Node(list[i]);
-        current.next = newNode;
-        current = newNode;
-    }
-    return head;
-}
 
 const link1 = generateLinkedListMockData([1, 2, 4])
 const link2 = generateLinkedListMockData([1, 3, 4])
