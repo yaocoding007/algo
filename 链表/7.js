@@ -5,7 +5,8 @@
 
 const {
     generateLinkedListMockData,
-    getLinksValue
+    getLinksValue,
+    Node
 } = require('./index')
 
 const l1 = generateLinkedListMockData([7,2,4,3])
@@ -16,12 +17,52 @@ const l2 = generateLinkedListMockData([5,6,4])
 
 // 最大的数字是在最前面的 但是数字相加的时候是从最后面开始的
 
+
+function addTwoNumbers(l1, l2) {
+    let stack1 = [], stack2 = [];
+    while(l1 || l2) {
+        if(l1) {
+            stack1.push(l1.value)
+            l1 = l1.next
+        }
+        if(l2) {
+            stack2.push(l2.value)
+            l2 = l2.next
+        }
+    }
+    let res = []
+    let carry = 0;
+
+    while(stack1.length || stack2.length) {
+        let num1 = stack1.pop() || 0
+        let num2 = stack2.pop() || 0
+
+        let num = num1 + num2 + carry;
+
+        if(num > 9) {
+            carry = num - 10;
+
+        }else {
+
+        }
+    }
+
+
+
+
+
+
+
+}
+
+
+
 /**
  * @param {ListNode} l1
  * @param {ListNode} l2
  * @return {ListNode}
  */
-var addTwoNumbers = function(l1, l2) {
+var addTwoNumbers1 = function(l1, l2) {
     const arr1 = getLinksValue(l1);
     const arr2 = getLinksValue(l2);
     const len1 = arr1.length, len2 = arr2.length;
@@ -55,4 +96,4 @@ var addTwoNumbers = function(l1, l2) {
 
 const res = addTwoNumbers(l1, l2)
 
-console.log('lly-log -- res --->', res);
+// console.log('lly-log -- res --->', res);
